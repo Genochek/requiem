@@ -1,0 +1,114 @@
+/* Desktop system notifications intentionally interrupt the visual novel. */
+html,body{user-select:none;-webkit-user-select:none}
+img{-webkit-user-drag:none}
+#advance,#previous-scene,#line-number,#dialogue-hint,.title-hint,.title-footnote,.dialogue-meta,#open-notes,#open-sources{display:none!important}
+.game-footer{height:33px}.footer-progress{margin-left:auto}.dialogue-box{min-height:17%;padding:10px}.dialogue-inner{min-height:78px}
+#partner-sprite{display:none}
+.system-layer{position:absolute;inset:0;z-index:60;pointer-events:none;visibility:hidden}
+.system-layer.active{visibility:visible;pointer-events:auto}
+.system-scrim{position:absolute;inset:0;background:rgba(10,12,23,.63);backdrop-filter:blur(7px) saturate(.7);opacity:0;transition:opacity .45s}
+.system-layer.active .system-scrim{opacity:1}
+.system-layer .lesson-host{position:absolute;inset:8% 8%!important;z-index:2;display:flex;justify-content:center;align-items:center;pointer-events:none;transition:none}
+.window-motion-shell{width:100%;max-height:100%;min-height:0;display:flex;flex-direction:column;pointer-events:auto;transform-origin:center}
+.system-layer .lesson-window{width:100%;max-height:100%;min-height:0;display:flex;flex-direction:column;box-shadow:0 24px 100px #0009,0 0 0 1px #fff5;backdrop-filter:none}
+.system-layer .window-title{font:600 17px 'Segoe UI',sans-serif;min-height:38px;flex:none;text-shadow:0 1px 3px #fff8}
+.system-layer .window-body{overflow:auto;max-height:100%;font-size:clamp(23px,1.7vw,32px);padding:clamp(22px,2.5vw,42px);line-height:1.4}
+.system-layer .lesson-heading{font-size:clamp(32px,3.2vw,52px);line-height:1.12;margin-bottom:25px}
+.system-layer p.lesson-body{font-size:clamp(23px,1.8vw,31px);line-height:1.4;margin-bottom:25px!important}
+.system-layer .point p{font-size:.9em}.system-layer .point h3{font-size:1.1em}.system-layer .point-grid{gap:20px}
+.system-layer .error-panel{--ink:#202e43;--muted:#58667c;--glass:#bdd2e8;--edge:#768eab;--accent:#b63b4a;--deep:#8c2939;--paper:#f8f9fb;--pale:#edf1f7;border-radius:6px;background:linear-gradient(120deg,#f2f5faee,#b5c9e0ef 43%,#e9f0faee 44%,#c7d6e7);border-color:#7f98b8}
+.error-panel .window-title{color:#213047;font-family:'Segoe UI',sans-serif}.error-panel .window-app-icon{border-radius:50%;width:27px;height:27px;background:#b52b37;box-shadow:inset 0 0 0 3px #ffe7e7;color:white}
+.error-panel .window-body{border-left:7px solid #b64351;background:linear-gradient(100deg,#fff,#f3f5f9)}
+.error-panel .point{border:1px solid #b9c5d5;background:#e9eef6;color:#26384f}.error-panel .point h3{color:#80313f}
+.error-panel .window-controls .close-button{background:linear-gradient(#f5b4ae,#d5655b 48%,#b62e2d 50%,#df7770)}
+.has-lesson .dialogue-box,.has-lesson .location-tag{filter:blur(2px);opacity:.65;transition:opacity .4s,filter .4s}
+.has-lesson .character-stage{opacity:.9;filter:none}.panel-active .character-stage{width:39%;left:0}.panel-active .dialogue-box{min-height:17%}
+.system-layer .chat-stack{width:100%;max-width:1330px;gap:22px;min-height:0;max-height:100%;overflow:auto;padding:8px 20px 25px}
+.chat-stack>.window-motion-shell{width:86%;flex:none;align-self:flex-start}
+.chat-stack>.window-motion-shell:nth-child(even){align-self:flex-end}
+.system-layer .chat-window{align-self:auto;width:100%;transform:none;flex:none;background:linear-gradient(120deg,#f4f6ff,#c3cce0);--ink:#293148;--paper:#f6f7fd;--edge:#8190b2}
+.system-layer .chat-window.answer{transform:rotate(.65deg);background:linear-gradient(120deg,#eafaff,#9ecae2);--paper:#f1faff;--edge:#74a8c7}
+.system-layer .chat-window .window-body{padding:23px 30px;font-size:clamp(24px,2vw,32px)}
+.system-layer .chat-window h2{font-size:1.12em;padding:0}.system-layer .chat-window p{font-size:1em}
+.scripted-cursor{z-index:90;width:28px;height:46px;left:0;top:0;transition:none;filter:drop-shadow(2px 3px 2px #0005)}
+.scripted-cursor img{width:100%;height:100%;object-fit:contain;object-position:top left;display:block}
+.system-layer .fact-sticker{width:95px;right:17px;top:-54px;filter:drop-shadow(2px 6px 4px #0003)}
+.system-layer .scene-13 .fact-sticker{width:80px;top:-40px}
+body[data-theme=night]{--ink:#f7eff9;--muted:#cbb9d5;--paper:#272035;--pale:#3b2f4b;--glass:#43334f;--edge:#9c81af;--deep:#e0baf1;--accent:#e3be8a;--bar:linear-gradient(#66516e,#46334e 48%,#30243d 50%,#4d395b)}
+body[data-theme=night] .point,body[data-theme=night] .diagram-node{background:linear-gradient(#493652,#33283e);color:#f9f1ff;border-color:#90759f}
+body[data-theme=night] .point h3,body[data-theme=night] .diagram-node h3{color:#f0d8ff}
+body[data-theme=night] .node-orb{background:radial-gradient(at 30% 20%,#bda0ce,#5c426f);color:#fff;border-color:#c7a8de}
+body[data-theme=night] .window-title{color:#f8ebff;text-shadow:none}
+body[data-theme=night] .dialogue-box{background:linear-gradient(120deg,#54415f,#30253c);border-color:#a78ab8}
+body[data-theme=night] .shell-bar,body[data-theme=night] .game-footer{text-shadow:none;color:#f4e5fa}
+body[data-theme=night] .game-footer #scene-counter{color:#f6e8ff}
+#scenes-dialog{width:min(1120px,94vw);max-width:1120px}.scene-navigation{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;padding:20px;max-height:76dvh;overflow:auto}
+.scene-navigation button{padding:0;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--edge);border-radius:5px;overflow:hidden;box-shadow:0 3px 9px #392c4020;text-align:left}
+.scene-navigation button strong{padding:13px;font-size:17px;line-height:1.2;min-height:62px;font-weight:800}
+.scene-navigation button[aria-current]{outline:3px solid var(--accent);outline-offset:-3px;background:var(--pale)}
+.scene-thumb{height:115px;width:100%;position:relative;background-size:cover;background-position:center;overflow:hidden}
+.scene-thumb.thumb-night{background-blend-mode:multiply;background-color:#35233e}.scene-thumb>span{position:absolute;z-index:2;top:8px;left:8px;font:15px var(--pixel);margin:0;background:#fffE;padding:4px 7px;border:1px solid #fff;color:#4b3b54}
+.scene-thumb img{position:absolute;right:6%;bottom:-65%;height:160%;width:63%;object-fit:contain;filter:drop-shadow(2px 4px 4px #0005)}
+.scene-thumb b{position:absolute;bottom:7px;left:9px;font:30px var(--pixel);color:white;text-shadow:0 1px 5px #000}
+.duo-finale .character-stage{width:70%;left:15%;height:95%;bottom:0;display:flex;align-items:flex-end;justify-content:center;gap:0}
+.duo-finale .character-stage img{width:53%;height:100%;object-fit:contain;object-position:bottom}.duo-finale #partner-sprite{display:block;width:36%;height:90%}
+.duo-finale .character-stage[data-speaking=Нацуки]>#speaker-sprite{filter:brightness(.86) drop-shadow(10px 8px 15px #34213e33)}
+.duo-finale .character-stage[data-speaking=Моника]>#partner-sprite{filter:brightness(.86) drop-shadow(10px 8px 15px #34213e33)}
+.finale-fading #game-view{background:#37223f}.finale-fading .background-light{background:#37223fbb;transition:background 1.7s}
+.credits-heading{left:12%;top:8%}.credits-heading h2{font-size:clamp(36px,4vw,64px)}
+.credits-track{left:12%;width:55%;top:28%;bottom:10%}.credits-roll{font-size:23px;line-height:1.6}.credits-roll h2{font-size:42px}.credits-cat{right:6%;top:34%;width:26%;max-width:360px}.credits-skip{left:12%}
+.credits-screen{background:radial-gradient(ellipse at 60% 40%,#694367,#252031 80%)}
+.replay-block{background:radial-gradient(ellipse,#271c32e8,#09080cef);color:#fff}.replay-block .game-button{min-width:260px;justify-content:center}
+@media(max-width:1000px){.system-layer .lesson-host{inset:8% 6%!important}.system-layer .lesson-heading{font-size:36px}.system-layer .window-body{font-size:25px}.system-layer p.lesson-body{font-size:25px}.scene-navigation{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.game-footer{height:32px}.dialogue-box,.panel-active .dialogue-box{min-height:17%;bottom:3%}.dialogue-inner{min-height:86px}.system-layer .lesson-host{inset:6% 4%!important}.system-layer .window-title{font-size:13px;min-height:31px;padding-left:5px}.system-layer .window-body{font-size:21px;padding:22px 18px}.system-layer .lesson-heading{font-size:29px;margin-bottom:20px}.system-layer p.lesson-body{font-size:21px}.system-layer .point-grid{grid-template-columns:1fr;gap:12px}.system-layer .point p{font-size:19px}.system-layer .point h3{font-size:23px}.system-layer .chat-stack{padding:8px 4px 15px;gap:17px}.chat-stack>.window-motion-shell{width:96%}.system-layer .chat-window .window-body{padding:18px;font-size:23px}.system-layer .fact-sticker{width:65px;right:12px;top:-32px}.scene-navigation{grid-template-columns:repeat(2,1fr);gap:11px;padding:13px}.scene-navigation button strong{font-size:15px;min-height:57px}.scene-thumb{height:95px}.duo-finale .character-stage{width:110%;left:-5%;height:85%}.duo-finale .character-stage img{width:62%}.duo-finale #partner-sprite{width:42%}.credits-heading{left:7%;right:7%;top:9%}.credits-heading h2{font-size:36px}.credits-track{left:8%;width:60%;top:30%;bottom:11%}.credits-roll{font-size:18px}.credits-roll h2{font-size:30px}.credits-cat{right:4%;width:27%;top:41%}.credits-skip{left:8%}.dialogue-next{display:none}.system-layer .diagram-flow{gap:9px}}
+@media(max-height:500px) and (orientation:landscape){.system-layer .lesson-host{inset:5% 9%!important}.system-layer .window-title{min-height:27px;font-size:13px}.system-layer .lesson-heading{font-size:27px;margin-bottom:14px}.system-layer .window-body,.system-layer p.lesson-body{font-size:22px}.system-layer .point p{font-size:20px}.system-layer .chat-stack{gap:12px}.system-layer .chat-window .window-body{font-size:22px;padding:16px}.system-layer .diagram-flow{flex-direction:row}.scene-navigation{grid-template-columns:repeat(4,1fr)}.scene-thumb{height:90px}.credits-heading{top:7%}.credits-heading h2{font-size:32px}.credits-track{top:35%;width:53%}.credits-cat{top:23%;width:22%}}
+@media(prefers-reduced-motion:reduce){.system-scrim,.has-lesson .dialogue-box{transition:none}.scripted-cursor{display:block!important}}
+/* Review fixes: soft compositing, stable ratios and interruption-safe presentation. */
+:root{--scene-unit:min(1vw,1.6dvh)}
+body.hide-player-cursor,body.hide-player-cursor *{cursor:none!important}
+body:has(dialog[open]),body:has(dialog[open]) *{cursor:auto!important}
+body:has(dialog[open]) button,body:has(dialog[open]) a{cursor:pointer!important}
+.system-scrim{background:rgba(45,34,58,.28);backdrop-filter:blur(6px) brightness(.73) saturate(.8);border-radius:10px}
+.system-layer .window-motion-shell{filter:none!important;isolation:isolate}
+.system-layer .lesson-window{box-shadow:0 12px 30px #100b202e,0 0 0 1px #fff6}
+.system-layer .chat-stack{padding:12px 20px 30px;scrollbar-width:thin}
+.system-layer .chat-window{box-shadow:0 8px 20px #21183320,0 0 0 1px #fff4}
+.system-layer .fact-sticker,.system-layer .scene-13 .fact-sticker{right:150px;top:-45px;width:78px}
+.scripted-cursor{filter:none;width:25px;height:40px}
+.scripted-cursor img{image-rendering:pixelated;filter:none}
+.lesson-window:is(.scene-13,.variant-heat) .heat-comparison{grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr);align-items:stretch;gap:14px}
+.heat-flow{grid-column:auto;display:grid;place-items:center;border:0;background:none;padding:0;font-size:32px}
+.heat-zone{width:auto}
+.population-stat{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:28px;margin:20px 0 25px}
+.lesson-window:is(.scene-9,.variant-kazakhstan) .population-stat .population-dial{float:none;margin:0;width:clamp(175px,17vw,235px);padding:19px;container-type:inline-size}
+.population-stat .dial-value{display:block;width:100%;font-size:clamp(36px,31cqw,65px);letter-spacing:-1px;white-space:nowrap;text-align:center;line-height:1.1}
+.population-stat .dial-caption{font-size:clamp(22px,1.8vw,29px);line-height:1.35;margin:0;color:#265571}
+.lesson-window.scene-9 .point-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.lesson-window.scene-9 .point{display:block;padding:16px;min-width:0}.lesson-window.scene-9 .point p{margin-top:10px}
+.pause-body{display:grid;gap:20px}.pause-body h2{font-size:27px;margin:0}.pause-body .game-button{justify-content:center}
+.lamp-stage{top:auto;right:auto;left:25%;bottom:28%;height:27%;z-index:5;transform:none}
+.lamp-stage img{display:block;position:relative;z-index:2;filter:drop-shadow(0 10px 10px #0005) drop-shadow(0 0 18px #ffc46e44)}
+.lamp-table{position:absolute;left:50%;bottom:-10px;translate:-50% 0;width:clamp(140px,15vw,230px);height:22px;border-radius:50%;background:linear-gradient(#9f7c9b,#48334c);border:1px solid #c6a3bd66;box-shadow:0 10px 18px #0005;z-index:1}
+.lamp-table:before,.lamp-table:after{content:'';position:absolute;top:15px;width:8px;height:110px;background:linear-gradient(90deg,#342939,#6b536c,#392b3c);border-radius:2px;box-shadow:4px 3px 9px #0003}.lamp-table:before{left:23%}.lamp-table:after{right:23%}
+.night-intro .dialogue-box,.night-intro #lesson-host,.night-intro .location-tag{visibility:hidden;opacity:0}.night-intro .background-light{background:#08071177}
+body[data-theme=night] .lamp-stage{filter:none}
+@media(min-width:701px){.title-heading h1{font-size:clamp(40px,calc(5.5 * var(--scene-unit)),88px)}.title-heading p{font-size:clamp(25px,calc(3 * var(--scene-unit)),45px)}.title-menu{top:8%;gap:clamp(9px,1.8dvh,22px)}.title-tagline{font-size:clamp(16px,calc(1.5 * var(--scene-unit)),23px)}.title-menu .game-button{font-size:clamp(21px,calc(2 * var(--scene-unit)),30px);min-height:clamp(42px,6dvh,58px)}.menu-character{height:103%;width:auto;aspect-ratio:656/806;right:5%;max-width:52%}}
+@media(max-width:700px){.system-scrim{border-radius:0}.system-layer .fact-sticker,.system-layer .scene-13 .fact-sticker{right:95px;top:-30px;width:53px}.population-stat{grid-template-columns:1fr;justify-items:center;gap:17px;margin:15px 0 23px}.population-stat .dial-caption{text-align:center;font-size:21px}.lesson-window:is(.scene-9,.variant-kazakhstan) .population-stat .population-dial{width:190px}.lesson-window.scene-9 .point-grid{grid-template-columns:1fr}.lesson-window:is(.scene-13,.variant-heat) .heat-comparison{grid-template-columns:1fr;gap:14px}.heat-flow{rotate:90deg;height:24px}.lamp-stage{left:9%;right:auto;bottom:28%;top:auto;height:24%}.lamp-table{width:130px;height:15px}.lamp-table:before,.lamp-table:after{height:65px;width:6px}.scene-navigation button strong{overflow-wrap:anywhere}}
+@media(max-height:500px) and (orientation:landscape){.title-menu{top:6%;gap:7px}.title-menu .game-button{min-height:33px;font-size:20px}.title-heading h1{font-size:38px}.title-heading p{font-size:24px}.menu-character{height:110%;right:7%;max-width:48%}.lesson-window.scene-9 .point-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.population-stat{grid-template-columns:170px minmax(0,1fr);gap:18px}.lesson-window:is(.scene-9,.variant-kazakhstan) .population-stat .population-dial{width:160px}.lesson-window:is(.scene-13,.variant-heat) .heat-comparison{grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr)}.heat-flow{rotate:none;height:auto}.lamp-stage{height:29%;bottom:25%;left:24%}.lamp-table:before,.lamp-table:after{height:50px}}
+@media(prefers-reduced-motion:reduce){.scripted-cursor{display:none!important}}
+.stat-caveat{font-size:clamp(19px,1.4vw,23px);line-height:1.35;padding:15px 20px;background:#e8f3fa;border-left:4px solid #6ba6c4;border-radius:3px;color:#2c5872;margin:15px 0 0}
+.motion-off .credits-track{overflow:auto;mask-image:none}.motion-off .credits-roll{will-change:auto}
+@media(prefers-reduced-motion:reduce){.credits-track{overflow:auto;mask-image:none}.credits-roll{will-change:auto}}
+.heat-planning{font-size:clamp(21px,1.6vw,26px);line-height:1.35;margin:24px 0 0;color:var(--ink)}
+@media(max-width:700px){.system-layer .fact-sticker,.system-layer .scene-13 .fact-sticker{right:130px;top:0;width:32px}}
+@media(max-width:340px){.system-layer .fact-sticker{display:none}}
+.has-lesson .scene-background,.has-lesson .character-stage img{animation-play-state:paused}
+.menu-sound{position:absolute;left:6%;bottom:4%;z-index:7;font:16px var(--pixel);padding:10px 15px;background:linear-gradient(#fff8fc,#edcadd);border:1px solid #ae799b;border-radius:4px;box-shadow:inset 0 1px #fff,0 3px 8px #72475b22;color:#62425b}
+.script-hover{filter:brightness(1.18);box-shadow:inset 0 0 0 2px #fff8,0 0 12px #c9efff88}
+.chat-stack>.window-motion-shell[data-message="0"]{align-self:flex-start}.chat-stack>.window-motion-shell[data-message="1"]{align-self:flex-end}.chat-stack>.window-motion-shell[data-message="2"]{align-self:center}
+.night-prelude .scene-background{filter:brightness(.8)!important;transition:filter .3s}.night-prelude .character-stage{filter:brightness(.7)!important}.outage:not(.night-prelude) .scene-background{transition:filter .3s}
+.power-return .scene-background{filter:brightness(.08)!important}.power-return .character-stage{filter:brightness(.15)!important}.power-return .dialogue-box,.power-return #lesson-host{visibility:hidden}
+@media(max-width:700px){.menu-sound{font-size:14px;left:7%;bottom:3%;padding:8px 12px}}
+@media(max-height:500px) and (orientation:landscape){.menu-sound{left:auto;right:3%;bottom:4%;font-size:13px}}
+#game-view:focus{outline:none}
+.system-layer .lesson-window>.window-body{background-color:var(--paper)}

@@ -1,0 +1,180 @@
+/* Scene-specific study interfaces. Load after style.css. */
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19){
+  --panel-ink:var(--ink);--panel-muted:var(--muted);--panel-paper:var(--paper);
+  --panel-tint:var(--pale);--panel-edge:var(--edge);--panel-accent:var(--deep);
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19)>.window-body{
+  padding:clamp(21px,2.5vw,38px);color:var(--panel-ink);
+  background:linear-gradient(135deg,#ffffff87,transparent 55%),var(--panel-paper);
+  font-size:clamp(24px,1.8vw,30px);line-height:1.38;overflow:auto;
+  overscroll-behavior:contain;scrollbar-gutter:stable;
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .lesson-heading{
+  font-size:clamp(30px,2.55vw,45px);line-height:1.14;letter-spacing:-.6px;
+  margin:0 0 18px;text-wrap:balance;color:var(--panel-ink);
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .lesson-body{
+  font-size:clamp(24px,1.8vw,30px);line-height:1.4;padding:0;margin:0 0 25px;
+  color:var(--panel-ink);max-width:78ch;
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .lesson-kicker{
+  font-size:19px;letter-spacing:.02em;color:var(--panel-muted);margin:0 0 10px;
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point-grid{
+  gap:14px;grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point{
+  position:relative;padding:20px;min-width:0;border-radius:8px;
+  border:1px solid var(--panel-edge);
+  background:linear-gradient(180deg,#ffffff65,transparent 30%),var(--panel-tint);
+  box-shadow:inset 0 1px #ffffffa6,0 3px 8px #2233470a;
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point h3{
+  font-size:clamp(25px,1.85vw,30px);line-height:1.2;margin:0 0 10px;
+  color:var(--panel-accent);overflow-wrap:break-word;
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point p{
+  font-size:clamp(23px,1.7vw,28px);line-height:1.36;margin:0;color:var(--panel-ink);
+}
+.lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point-number{display:none}
+
+/* A reference document: separate statement from explanations. */
+.lesson-window.scene-6>.window-body{
+  background:linear-gradient(90deg,#d7cbe9 0 9px,transparent 9px),var(--panel-paper);
+  padding-left:clamp(28px,3vw,45px);
+}
+.lesson-window.scene-6 .lesson-body{
+  padding:18px 22px;border-left:4px solid var(--panel-accent);
+  background:var(--panel-tint);border-radius:0 9px 9px 0;
+}
+.lesson-window.scene-6 .point-grid{grid-template-columns:1fr;gap:0}
+.lesson-window.scene-6 .point{
+  display:grid;grid-template-columns:minmax(140px,.75fr) 2fr;gap:20px;
+  background:none;border:0;border-top:1px solid var(--panel-edge);
+  border-radius:0;box-shadow:none;padding:18px 0;
+}
+.lesson-window.scene-6 .point h3{margin:0}
+
+/* A dated share of population, not an invented trend graph. */
+.lesson-window:is(.scene-9,.variant-kazakhstan) .population-dial{
+  float:left;width:clamp(190px,18vw,280px);aspect-ratio:1;margin:0 28px 22px 0;
+  border-radius:50%;padding:clamp(22px,2vw,30px);display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;position:relative;
+  background:conic-gradient(from -90deg,#247db2 0 63.6%,#d1e8f3 63.6% 100%);
+  box-shadow:0 0 0 1px #5c9fbd,0 5px 16px #26648a26,inset 0 1px #fff;
+  isolation:isolate;
+}
+.lesson-window:is(.scene-9,.variant-kazakhstan) .population-dial:before{
+  content:"";position:absolute;inset:14px;border-radius:50%;z-index:-1;
+  background:linear-gradient(145deg,#fff,#eaf5fc);box-shadow:inset 0 2px 7px #1a5d7a26;
+}
+.population-dial .dial-value{font-size:clamp(41px,4vw,65px);font-weight:900;line-height:1.05;color:#15547c;letter-spacing:-2px}
+.population-dial .dial-caption{font-size:clamp(21px,1.5vw,25px);line-height:1.2;color:#2c5a73;margin-top:10px}
+.lesson-window.scene-9 .point-grid{clear:both;grid-template-columns:1fr}
+.lesson-window.scene-9 .point{
+  border-left:5px solid #438db5;display:grid;grid-template-columns:minmax(120px,.5fr) 2fr;
+  gap:16px;padding:16px 20px;
+}
+.lesson-window.scene-9 .point h3{margin:0}
+
+/* Qualitative surface/air comparison. No unverified temperatures. */
+.lesson-window:is(.scene-13,.variant-heat) .heat-comparison{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative;margin:24px 0;
+}
+.heat-zone{--zone:#387f8b;--zone-bg:#e3f3ef;--zone-light:#b1dfd0;
+  position:relative;min-width:0;overflow:hidden;border:1px solid var(--zone);
+  border-radius:10px;padding:24px;background:var(--zone-bg);color:#203d43;
+  box-shadow:inset 0 1px #fff,0 4px 10px #254d5b12;
+}
+.heat-zone.urban{--zone:#a75d73;--zone-bg:#f8e5e8;--zone-light:#e6a5b2;color:#562d3c}
+.heat-zone .heat-surface{
+  display:block;height:clamp(50px,5vw,78px);margin:-24px -24px 22px;
+  background:linear-gradient(0deg,var(--zone-light),transparent),repeating-linear-gradient(90deg,transparent 0 42px,#ffffff55 43px 44px);
+  border-bottom:1px solid var(--zone);
+}
+.heat-zone.urban .heat-surface{background:linear-gradient(0deg,#db8a9e,#f3c0a7 60%,#f7dbca)}
+.heat-zone h3{font-size:clamp(26px,1.9vw,32px);line-height:1.2;margin:0 0 12px;color:var(--zone)}
+.heat-zone p{font-size:clamp(24px,1.75vw,29px);line-height:1.36;margin:0}
+.heat-flow{
+  grid-column:1/-1;padding:16px 23px;border-radius:8px;
+  background:var(--panel-tint);border:1px solid var(--panel-edge);
+  font-size:clamp(24px,1.8vw,30px);line-height:1.3;text-align:center;color:var(--panel-ink);
+}
+.lesson-window.scene-13 .point-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* Resource decisions: one linked process instead of another card grid. */
+.lesson-window:is(.scene-18,.variant-resource){
+  --panel-ink:#f3ebff;--panel-muted:#d4c2e1;--panel-paper:#282237;
+  --panel-tint:#3a304b;--panel-edge:#8f789e;--panel-accent:#e9c794;
+}
+.lesson-window:is(.scene-18,.variant-resource)>.window-body{
+  background:radial-gradient(ellipse at 92% 0,#58405a55,transparent 65%),var(--panel-paper);
+}
+.resource-cycle{display:flex;align-items:stretch;gap:12px;margin:26px 0 12px}
+.resource-step{
+  flex:1;min-width:0;border-top:3px solid #c9a67e;padding:22px 18px;
+  background:#382e48;border-radius:4px 4px 9px 9px;
+  box-shadow:inset 0 0 0 1px #8f789e66,0 5px 15px #110d1a33;color:#f3ebff;
+}
+.resource-step>span,.resource-step .step-number{
+  display:inline-grid;place-items:center;width:48px;height:43px;margin-bottom:16px;
+  border-radius:7px;background:#514057;border:1px solid #b294a0;color:#f0d0a0;
+  font-size:26px;font-weight:900;
+}
+.resource-step h3{font-size:clamp(25px,1.8vw,30px);line-height:1.22;margin:0 0 14px;color:#f0d0a0;overflow-wrap:break-word}
+.resource-step p{font-size:clamp(23px,1.7vw,28px);line-height:1.38;margin:0;color:#f3ebff}
+.cycle-link{flex:none;align-self:center;font-size:clamp(28px,2.6vw,42px);line-height:1;color:#dec09e}
+
+/* The final system of connected city services, in clear Aero blue. */
+.lesson-window:is(.scene-19,.variant-orbit) .point-grid{
+  position:relative;gap:20px;padding-top:20px;border-top:3px solid #80bdd2;
+}
+.lesson-window:is(.scene-19,.variant-orbit) .point{
+  background:linear-gradient(180deg,#f9fdff,#d8edf7);border-color:#70a4c0;
+  border-radius:9px;box-shadow:inset 0 1px #fff,0 6px 12px #255b7514;
+  color:#193f59;
+}
+.lesson-window:is(.scene-19,.variant-orbit) .point:before{
+  content:"";position:absolute;left:26px;top:-21px;height:20px;width:2px;background:#80bdd2;
+}
+.lesson-window:is(.scene-19,.variant-orbit) .point h3{color:#1e719c}
+.lesson-window:is(.scene-19,.variant-orbit) .point p{color:#193f59}
+
+/* Night always keeps opaque dark reading surfaces. */
+body[data-theme=night] .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-19,.variant-orbit){
+  --panel-ink:#f3ebff;--panel-muted:#d4c2e1;--panel-paper:#282237;
+  --panel-tint:#3a304b;--panel-edge:#8f789e;--panel-accent:#e9c794;
+}
+body[data-theme=night] .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19)>.window-body{
+  background:radial-gradient(ellipse at 92% 0,#58405a55,transparent 65%),var(--panel-paper);
+}
+body[data-theme=night] .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point{
+  background:#3a304b;border-color:#8f789e;color:#f3ebff;box-shadow:inset 0 1px #a68ab322;
+}
+body[data-theme=night] .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point h3{color:#e9c794}
+body[data-theme=night] .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point p{color:#f3ebff}
+
+@media(max-width:1050px){
+  .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point-grid{grid-template-columns:1fr}
+  .resource-cycle{flex-direction:column;gap:8px}
+  .resource-step{padding:18px;display:grid;grid-template-columns:48px 1fr;gap:7px 14px}
+  .resource-step>span,.resource-step .step-number{grid-row:span 2;margin:0}
+  .resource-step h3{margin:0}.resource-step p{grid-column:2}
+  .cycle-link{transform:rotate(90deg);font-size:27px}
+  .heat-comparison{gap:12px}.heat-zone{padding:19px}
+}
+@media(max-width:700px){
+  .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19)>.window-body{padding:20px;font-size:21px;scrollbar-gutter:auto}
+  .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .lesson-heading{font-size:28px;letter-spacing:-.3px}
+  .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .lesson-body{font-size:21px;margin-bottom:20px}
+  .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point{padding:16px}
+  .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point h3{font-size:23px}
+  .lesson-window:is(.scene-6,.scene-9,.scene-13,.scene-18,.scene-19) .point p{font-size:21px}
+  .lesson-window.scene-6 .point,.lesson-window.scene-9 .point{display:block}
+  .lesson-window.scene-6 .point h3,.lesson-window.scene-9 .point h3{margin-bottom:8px}
+  .lesson-window:is(.scene-9,.variant-kazakhstan) .population-dial{float:none;margin:0 auto 22px;width:210px}
+  .lesson-window:is(.scene-13,.variant-heat) .heat-comparison{grid-template-columns:1fr}
+  .heat-zone h3{font-size:24px}.heat-zone p,.heat-flow{font-size:21px}
+  .resource-step h3{font-size:23px}.resource-step p{font-size:21px}
+  .lesson-window.scene-19 .point-grid{gap:14px}
+}

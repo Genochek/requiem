@@ -1,0 +1,169 @@
+/* The approved geography styles remain unchanged. Only literary additions live here. */
+/* V2: a single composited dissolve; no second CSS image interpolation. */
+.scene-background{transition:opacity .7s,filter 1.5s;will-change:transform,opacity}
+.literary-quote{font:clamp(25px,2.4vw,40px)/1.35 var(--pixel);margin:0 0 24px;padding:18px 22px;border-left:4px solid var(--accent);background:var(--pale);color:var(--ink)}
+.book-panel .window-body{background:linear-gradient(90deg,#ead8e2,var(--paper) 4%,var(--paper) 48%,#e5d3df 50%,var(--paper) 53%)}
+.explanation-panel{box-shadow:-14px -12px 0 -2px var(--glass),-14px -12px 0 -1px var(--edge),0 24px 100px #0009!important}
+.mouth-sprite video{display:block;width:100%;height:auto}.credits-cat .mouth-sprite{background:white}.credits-cat .window-title{font-size:13px}
+#menu-sound{display:none!important}.dialogue-box{overflow:visible}.character-stage{overflow:hidden}
+body[data-theme=night] .character-stage{filter:brightness(.68)}body[data-theme=night] .background-light{background:rgba(20,17,34,.45)}
+@media(max-width:700px){.literary-quote{font-size:25px;padding:12px 16px;margin-bottom:18px}}
+.credits-mini{position:absolute;top:70%;width:12%;max-width:165px}.credits-mini-a{right:20%}.credits-mini-b{right:6%}.credits-mini .window-title{font:12px var(--pixel);min-height:20px}.credits-mini video{width:100%;display:block;background:white;max-height:110px;object-fit:contain}
+@media(max-width:700px){.credits-mini{top:65%;width:13%;padding:3px}.credits-mini-a{right:18%}.credits-mini-b{right:3%}.credits-mini .window-title{display:none}.credits-mini video{max-height:70px}}
+
+.character-stage[data-faceless=true] #speaker-sprite{object-fit:cover;object-position:center bottom}
+
+/* Requiem additions: preserve the Aero frame, isolate every document's palette. */
+@font-face{font-family:RequiemPixel;src:url('assets/tiny5.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+:root{--pixel:RequiemPixel,monospace}
+.literary-window{--ink:#282232;--muted:#67546b;--accent:#8d506d;--deep:#673750;--paper:#faf4f6;--pale:#ecdee7;--glass:#c5b2c3;--edge:#9b7b95;--bar:linear-gradient(#f8eef5,#ddcbdc 47%,#b499b4 49%,#d8c4d5);color:var(--ink)}
+.literary-window.error-panel{--glass:#c4cdda;--edge:#8392aa;--bar:linear-gradient(#f3f6fc,#d8dfeb 47%,#b2bfd3 49%,#d2dcea)}
+.literary-window>.window-body{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--edge)}
+.system-layer .literary-window .window-title,.literary-window .window-caption{color:#17131e!important;text-shadow:none!important;font:600 17px 'Segoe UI',sans-serif}
+.literary-window .point{background:linear-gradient(#fff8,transparent 45%),var(--pale)!important;color:var(--ink)!important;border:1px solid #b79caf;box-shadow:inset 0 1px #fff9,0 3px 8px #3623370c}
+.literary-window .point h3,.literary-window .point p,.literary-window .point-number,.literary-window .lesson-heading,.literary-window .lesson-body{color:var(--ink)!important}
+.literary-window .point-number{color:#69516d!important;font-size:16px}
+.lesson-heading,.point h3,.speaker-plate,.title-tagline{font-family:var(--pixel)}
+.system-layer .lesson-heading{font-size:clamp(34px,3vw,49px);font-weight:500;letter-spacing:0}
+.book-panel>.window-body{background:linear-gradient(90deg,#d5bccd,var(--paper) 4%,var(--paper) 48%,#deced8 50%,var(--paper) 53%)!important}
+.book-panel{border-bottom-width:4px;border-bottom-color:#9a718a;box-shadow:0 4px 0 #eee1e8,0 8px 0 #9e7d95,0 24px 100px #0008!important}
+.literary-window .quiz-option{color:#302436}.literary-window .quiz-option>span{font:22px var(--pixel);min-width:25px}.literary-window .quiz-feedback{color:#60475f}
+.literary-window .quiz-option.incorrect{background:#f4d8df;border-color:#ae5267}.literary-window .quiz-option.correct{background:#dcebdd;border-color:#688d6f}
+.study-note .lesson-heading{font-size:clamp(30px,2.8vw,43px);font-weight:500;letter-spacing:0}
+.title-heading h1{font-weight:500;letter-spacing:0;line-height:1.1}.title-heading p{font-size:clamp(25px,2.8vw,43px);letter-spacing:0}.title-heading{animation:quiet-heading 8s ease-in-out infinite}.speaker-plate{animation:quiet-plate 7s ease-in-out infinite}
+.character-stage{overflow:visible!important;transition:opacity .5s,filter 1.8s;transform:none!important;height:90%;bottom:0}
+.actor-slot{position:absolute;inset:0;overflow:visible;pointer-events:none}.actor-motion{width:100%;height:100%;position:relative;transform-origin:bottom center;will-change:transform}
+.character-stage .actor-motion>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover!important;object-position:center bottom;transform-origin:center bottom;animation:actor-breathe 6.8s ease-in-out infinite;filter:drop-shadow(8px 8px 12px #2c172e26)}
+.character-stage .actor-motion>img.actor-ghost{animation:none!important;z-index:2}.character-stage .actor-slot:not(.primary-slot) img{filter:brightness(.83) saturate(.85) drop-shadow(8px 8px 12px #2c172e26)}
+.character-stage.ensemble{left:0!important;bottom:0;width:100%!important;height:87%;opacity:1;display:block}.character-stage.ensemble>.actor-slot{inset:auto;bottom:0;width:38%;height:100%}.character-stage.ensemble .primary-slot{z-index:5}.character-stage.ensemble .ensemble-slot{z-index:3}.character-stage.ensemble img{width:100%;height:100%}
+#partner-sprite{display:none!important}#emotional-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:#171220;opacity:0}
+.emotional-reading .dialogue-box,.emotional-reading .dialogue-inner,.emotional-reading .speaker-plate{transition:background-color 2.2s,color 1.8s,border-color 2s}.emotional-reading .background-light{background:transparent}
+.chapter-title{position:absolute;top:9%;left:10%;right:10%;z-index:12;text-align:center;font:clamp(30px,3.5vw,54px) var(--pixel);color:#fff4f5;text-shadow:0 2px 12px #24152e,0 1px 2px #24152e;pointer-events:none;background:linear-gradient(90deg,transparent,#39233370,transparent);padding:15px 30px;border-block:1px solid #fff3}
+.in-title .scene-background{filter:brightness(.65) saturate(.45)}.in-title .background-light{background:linear-gradient(90deg,#d9b8c733,#29182f40)}
+.menu-sail{background:linear-gradient(110deg,#f7edf1f5,#d8b6c9f2)}.menu-sail:after{opacity:.07}.title-heading h1{color:#713e57;text-shadow:2px 2px #fff,4px 5px #a5729366}.title-tagline{font-size:clamp(20px,1.8vw,28px);color:#604451}
+.menu-character{right:0;bottom:-12%;width:61%;height:105%;animation:cover-breathe 9s ease-in-out infinite;transform-origin:bottom center;overflow:visible}.menu-character img{position:absolute;bottom:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(9px 12px 10px #27152e50)}.menu-character .cover-monika{left:-11%;opacity:.85;filter:brightness(.78) saturate(.8) drop-shadow(9px 12px 10px #27152e50)}.menu-character .cover-natsuki{left:21%;height:90%;opacity:.95}
+.wind-rail{display:none}.menu-bow{top:4%;right:5%;width:10%;opacity:.82}.menu-sparkle{display:none!important}
+.cover-pages{position:absolute;top:10%;right:25%;width:120px;height:130px;z-index:1;transform:rotate(-10deg);opacity:.8}.cover-pages span{position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 18px,#aa879c35 18px 19px),#f7e9ec;border:1px solid #a47c92;box-shadow:3px 4px #4b2d4850}.cover-pages span:nth-child(1){transform:rotate(-9deg) translateX(-12px)}.cover-pages span:nth-child(3){transform:rotate(7deg) translateX(8px)}
+@keyframes actor-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.006,1.008)}}@keyframes quiet-heading{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes quiet-plate{0%,100%{transform:translateY(0)}50%{transform:translateY(-1px)}}@keyframes cover-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(max-width:700px){.character-stage{width:85%;left:-15%;height:77%}.panel-active .character-stage{width:70%;left:-10%}.character-stage.ensemble{height:66%;bottom:19%}.character-stage.ensemble>.actor-slot{width:57%;height:100%}.character-stage.ensemble>.primary-slot,.character-stage.ensemble>.ensemble-slot{margin-left:-10%}.chapter-title{top:10%;left:5%;right:5%;padding:12px 15px;font-size:32px}.system-layer .literary-window .window-title{font-size:13px}.system-layer .lesson-heading{font-size:29px}.menu-character{right:-27%;width:100%;height:71%;bottom:-2%}.menu-character .cover-monika{left:-9%;opacity:.75}.menu-character .cover-natsuki{display:none}.menu-bow{width:18%}.cover-pages{right:9%;top:23%;width:70px;height:85px}.title-heading h1{font-size:49px}.title-heading p{font-size:29px}.title-tagline{font-size:20px}}
+@media(max-height:500px) and (orientation:landscape){.menu-character{height:110%;width:55%;right:0;bottom:-14%}.title-heading h1{font-size:42px}.title-heading p{font-size:26px}.character-stage.ensemble{height:94%;bottom:0}.chapter-title{font-size:32px;top:7%;padding:9px 15px}}
+@media(prefers-reduced-motion:reduce){.title-heading,.speaker-plate,.menu-character,.actor-motion>img{animation:none!important}}
+body.motion-off .title-heading,body.motion-off .speaker-plate,body.motion-off .menu-character,body.motion-off .actor-motion>img{animation:none!important}
+
+
+.character-stage{transition:opacity .5s,filter 1.8s,width .5s,left .5s,height .5s}.character-stage.ensemble .actor-slot img{filter:brightness(.77) saturate(.8);transition:filter .4s}.character-stage.ensemble .actor-slot.active-actor img{filter:brightness(1) saturate(1)}.cover-pages{left:29%;right:auto;top:auto;bottom:11%;width:100px;height:125px;opacity:.45}@media(max-width:700px){.cover-pages{display:none}}
+
+
+.literary-window .point h3{font-weight:400;letter-spacing:.3px;font-size:clamp(25px,2vw,31px)}
+.emotional-reading .study-note{transition:background-color 2.2s,color 1.8s,border-color 2s}.emotional-reading .study-note .lesson-heading,.emotional-reading .study-note .lesson-body{transition:color 1.8s}
+
+
+.literary-window .poem-flow{grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}.literary-window .poem-flow .point{position:relative;padding:22px 16px;min-height:160px;display:flex;flex-direction:column;justify-content:center}.poem-flow .point p:empty{display:none}.poem-flow .point:not(:last-child):after{content:"→";position:absolute;right:-17px;top:43%;color:#77566d;font:24px var(--pixel);z-index:2}.literary-window .poem-flow .point h3{font-size:27px;line-height:1.15}.book-panel:after{content:"";position:absolute;top:0;right:138px;width:12px;height:34px;background:#99546e;clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);pointer-events:none}@media(max-width:900px){.literary-window .poem-flow{grid-template-columns:1fr}.poem-flow .point:not(:last-child):after{display:none}}
+
+
+.book-panel{position:relative}
+
+/* Information is read aloud; pixel lettering belongs to the game chrome. */
+.lesson-heading,.point h3,.literary-quote,.quiz-question,.quiz-option,.quiz-feedback,
+.study-note .lesson-heading,.study-note .lesson-body,.literary-window .lesson-heading,
+.literary-window .point h3,.literary-window .point p,#dialogue-text{
+  font-family:var(--bodyfont)!important;letter-spacing:normal;
+}
+.lesson-heading,.literary-window .lesson-heading,.study-note .lesson-heading{font-weight:800}
+.literary-window .point h3{font-weight:800;font-size:clamp(24px,1.85vw,30px)}
+.literary-window .poem-flow .point h3{font-family:var(--bodyfont)!important;font-weight:800;font-size:clamp(22px,1.8vw,28px);line-height:1.25}
+.literary-quote{font-weight:700}.quiz-option{font-weight:600}
+.character-quest{position:absolute;right:4%;top:6%;z-index:14;width:300px;padding:14px 18px 15px;background:#f8edf3ed;color:#443044;border:1px solid #a6849e;border-left:3px solid #9c6384;border-radius:4px;box-shadow:0 6px 18px #30213625,inset 0 1px #fff;pointer-events:none}
+.literary-window{position:relative}
+.window-mood-sticker{position:absolute;right:112px;top:-26px;width:65px;height:65px;object-fit:contain;z-index:4;pointer-events:none;user-select:none;transform:rotate(7deg);filter:drop-shadow(2px 3px 2px #32243b30)}
+.window-mood-sticker.mood-nerd{width:83px;transform:rotate(-6deg)}
+.window-mood-sticker.mood-heart{width:49px;height:49px;top:-18px;transform:rotate(-8deg)}
+@media(max-width:700px),(max-height:550px){.window-mood-sticker{width:42px;height:42px;right:104px;top:-17px}.window-mood-sticker.mood-nerd{width:54px}.window-mood-sticker.mood-heart{width:35px;height:35px;top:-12px}}
+.quest-caption{font:18px var(--pixel);color:#88556f;margin-bottom:7px}.character-quest strong{font:700 16px var(--bodyfont)}.character-quest p{font:18px/1.4 var(--bodyfont);margin:7px 0 0}
+@media(max-width:700px){.character-quest{right:4%;top:8%;width:260px;padding:12px 15px}.character-quest p{font-size:16px}}
+
+
+@media(max-width:700px){.window-mood-sticker,.window-mood-sticker.mood-nerd,.window-mood-sticker.mood-heart{top:-36px;width:36px;height:34px;right:108px}}
+
+/* Library documents live inside a Windows reader, without a book hinge. */
+.literary-window.book-panel{border-bottom-width:1px;border-bottom-color:var(--edge);box-shadow:0 24px 100px #0009,0 0 0 1px #fff5!important}
+.literary-window.book-panel:after{content:none}
+.literary-window.book-panel>.window-body{padding:0;background:#eee5ec!important}
+.explorer-path{display:flex;gap:10px;align-items:center;padding:11px 22px;border-bottom:1px solid #c5b2c2;background:linear-gradient(#fffafd,#e6dce7);color:#594456;font:16px/1.35 'Segoe UI',sans-serif}
+.explorer-path>span:first-child{display:grid;place-items:center;width:26px;height:26px;flex:none;background:#fbf7ed;border:1px solid #bba8bb;border-radius:3px;color:#805c79;font-size:21px}
+.reading-document{margin:16px;padding:clamp(22px,2.5vw,40px);background:#fffaf2;border:1px solid #c9bbbf;border-left:4px solid #ad8a9e;box-shadow:0 2px 7px #44334613;color:#302637}
+.reading-document .point{background:linear-gradient(#fff9,transparent),#f1e8e6!important;border-color:#cebdc4}
+.reading-document .point-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.literary-window .lesson-body:empty{display:none}
+body.audio-enabled #menu-sound{display:block!important}
+body.audio-enabled #menu-sound{max-width:190px;font-size:16px}
+@media(max-height:500px) and (orientation:landscape){.explorer-path{padding:5px 12px;font-size:13px}.reading-document{padding:15px 20px;margin:8px}.system-layer .reading-document .lesson-heading{font-size:26px;margin-bottom:12px}.system-layer .reading-document .lesson-body{font-size:20px;line-height:1.3;margin-bottom:12px!important}}
+@media(max-height:500px) and (orientation:landscape){.system-layer .lesson-heading{font-size:27px;line-height:1.12;margin-bottom:12px}}
+/* Phone layout: the story fills the screen, without desktop window chrome. */
+@media(max-width:700px) and (orientation:portrait){
+ .desktop-haze{display:none}.game-frame{width:100%;height:100dvh;margin:0;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent}
+ #game-view{border:0;box-shadow:none}.shell-bar{position:absolute;inset:0 0 auto;z-index:90;height:0;padding:0;background:none;text-shadow:none;pointer-events:none}
+ .shell-app,#shell-menu,#fullscreen{display:none}.shell-controls{display:contents;border:0;box-shadow:none}
+ .shell-controls #shell-settings{pointer-events:auto;position:absolute;top:calc(env(safe-area-inset-top,0px) + 8px);right:10px;width:44px;height:44px;border:1px solid #ffffff8c;border-radius:10px;background:var(--paper);color:var(--ink);box-shadow:0 3px 12px #21142524;text-shadow:none}
+ #shell-settings .icon-gear{font-size:21px}.game-footer{height:calc(42px + env(safe-area-inset-bottom,0px));padding:0 12px env(safe-area-inset-bottom,0px);border:0;box-shadow:none;background:var(--paper)}
+ .location-tag{top:calc(env(safe-area-inset-top,0px) + 15px);left:18px;max-width:76%;font-size:14px}
+ #play-screen>.lesson-host{top:calc(env(safe-area-inset-top,0px) + 61px);left:6%;right:6%;bottom:auto!important;display:block}
+ .lesson-host>.study-note{width:100%;padding:16px 18px;margin:0;background:var(--paper);box-shadow:0 6px 24px #2d1d3326}
+ .study-note .lesson-heading{font-size:26px;line-height:1.15;margin:0 0 9px}.study-note .lesson-body{font-size:18px;line-height:1.35;margin:0;padding:0}.study-note .note-tags{display:none}
+ .character-stage,.panel-active .character-stage{top:calc(var(--phone-card-bottom,190px) + 14px);height:auto;width:98%;left:-3%;bottom:20%;opacity:1}
+ .character-stage .actor-motion>img{object-fit:contain!important}
+ .character-stage.ensemble{top:auto;height:62%;width:100%!important;left:0!important;bottom:18%}
+ .dialogue-box,.panel-active .dialogue-box{left:6%;right:6%;bottom:3%;min-height:18%;padding:9px;border-radius:7px}
+ .dialogue-inner{padding:16px 17px;min-height:94px}#dialogue-text,.panel-active #dialogue-text{font-size:21px;line-height:1.35}.speaker-plate{font-size:21px}
+ .character-quest{top:calc(env(safe-area-inset-top,0px) + 62px)}
+ .game-footer button{min-width:44px;min-height:42px}
+}
+@media(max-width:700px){.explorer-path{padding:9px 12px;font-size:14px}.reading-document{margin:10px;padding:21px 17px}}
+
+/* Avoid per-frame inherited color recalculation across the entire scene. */
+body{transition:background 1.2s}
+
+
+/* Short phone viewports: keep four answers readable without an inner scroll. */
+@media(max-width:700px) and (max-height:760px) and (orientation:portrait){
+ .system-layer .choice-panel>.window-body{padding:16px 15px}
+ .system-layer .choice-panel .quiz-question{font-size:27px;line-height:1.12;margin-bottom:14px}
+ .system-layer .choice-panel .quiz-options{gap:8px}
+ .system-layer .choice-panel .quiz-option{padding:9px 12px;font-size:18px;line-height:1.25}
+ .system-layer .choice-panel .quiz-feedback{font-size:16px;line-height:1.25;padding:8px 10px;margin:10px 0 0;min-height:0}
+}
+@media(max-height:500px) and (orientation:landscape){
+ .system-layer .choice-panel>.window-body{padding:12px 16px}
+ .system-layer .choice-panel .quiz-question{font-size:24px;line-height:1.12;margin-bottom:10px}
+ .system-layer .choice-panel .quiz-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .system-layer .choice-panel .quiz-option{padding:8px 10px;font-size:16px;line-height:1.2}
+ .system-layer .choice-panel .quiz-feedback{font-size:14px;line-height:1.2;padding:6px 9px;margin:8px 0 0;min-height:0}
+}
+
+/* Phone ensemble stays above the full dialogue, including its name plate. */
+@media(max-width:700px) and (orientation:portrait){
+ #play-screen:has(.character-stage.ensemble) .study-note{display:none}
+ .character-stage.ensemble{top:66px;height:auto;bottom:var(--ensemble-floor,40%)}
+}
+
+/* Uncropped sprite canvas: retain the previous cover scale, reveal its edges. */
+@media(min-width:701px){
+ .character-stage .actor-motion>img{inset:0 auto 0 50%;width:auto;max-width:none;height:100%;object-fit:contain!important;translate:-50% 0}
+}
+.character-stage.ensemble{transition:opacity .5s,filter 1.8s}
+
+/* Height-led title cast: square and zoomed desktop windows keep the same scale. */
+@media(min-width:701px){
+ .menu-character{width:61%;height:105%;right:0;bottom:-12%;}
+ .menu-character img{width:auto;max-width:none;height:100%;object-fit:contain;left:50%;translate:-50% 0}
+ .menu-character .cover-monika{left:44%;height:100%}
+ .menu-character .cover-natsuki{left:75%;height:90%}
+}
+@media(min-width:701px) and (max-aspect-ratio:5/4){
+ .menu-character .cover-monika{left:42%}
+ .menu-character .cover-natsuki{left:70%}
+}
+/* The room remains visible through the entire credits and replay state. */
+.credits-screen{background:linear-gradient(90deg,#211b32b8,#37253aaa 65%,#251b3199);transition:background 3s}
+.credits-screen.finished{background:linear-gradient(#100d15d9,#100d15db)}
+body.in-credits #scene-background{filter:brightness(.65) saturate(.62)}
